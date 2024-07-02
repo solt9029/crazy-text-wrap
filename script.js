@@ -67,8 +67,12 @@ function wrapTextReverse(text, lengthPerLine) {
     const lineIndex = currentLength / lengthPerLine;
 
     let line = text.slice(currentLength, currentLength + lengthPerLine).split('');
-    if (lineIndex % 2 === 1) { line = line.reverse(); }
-    result += line.join('') + '<br />';
+
+    if (lineIndex % 2 === 1) { 
+      result += '<span style="float: right;">' + line.reverse().join('') + '</span><br />';
+    } else {
+      result += line.join('') + '<br />';
+    }
   }
 
   return result;
